@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.mysql.defined.KBUserDao" >
+    <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.KBUser" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="customer_id" property="customerId" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="login_account" property="loginAccount" jdbcType="VARCHAR" />
+        <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+        <result column="encryption_factor" property="encryptionFactor" jdbcType="VARCHAR" />
+        <result column="member_card_no" property="memberCardNo" jdbcType="VARCHAR" />
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+        <result column="real_name" property="realName" jdbcType="VARCHAR" />
+        <result column="head_img_url" property="headImgUrl" jdbcType="VARCHAR" />
+        <result column="region_id" property="regionId" jdbcType="BIGINT" />
+        <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+        <result column="user_type" property="userType" jdbcType="TINYINT" />
+        <result column="job_title_id" property="jobTitleId" jdbcType="BIGINT" />
+        <result column="user_source" property="userSource" jdbcType="TINYINT" />
+        <result column="inviter" property="inviter" jdbcType="VARCHAR" />
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="wx_open_id" property="wxOpenId" jdbcType="VARCHAR" />
+        <result column="wx_head_url" property="wxHeadUrl" jdbcType="VARCHAR" />
+        <result column="points" property="points" jdbcType="INTEGER" />
+        <result column="ding_user_id" property="dingUserId" jdbcType="VARCHAR" />
+        <result column="is_leave" property="isLeave" jdbcType="TINYINT" />
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, user_id, customer_id, phone, login_account, pwd, encryption_factor, member_card_no,
+    nick_name, real_name, head_img_url, region_id, branch_id, user_type, job_title_id,
+    user_source, inviter, wx_nick_name, wx_open_id, wx_head_url, points, ding_user_id,
+    is_leave, is_deleted, gmt_created, gmt_modified, created_by, modified_by
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from kb_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="batchInsert" >
+    insert into kb_user (id, user_id, customer_id,
+      phone, login_account, pwd,
+      encryption_factor, member_card_no, nick_name,
+      real_name, head_img_url, region_id,
+      branch_id, user_type, job_title_id,
+      user_source, inviter, wx_nick_name,
+      wx_open_id, wx_head_url, points,
+      ding_user_id, is_leave, is_deleted,
+      gmt_created, gmt_modified, created_by,
+      modified_by)
+    values
+        <foreach collection ="list" item="kbUser" separator =",">
+            (#{kbUser.id,jdbcType=BIGINT}, #{kbUser.userId,jdbcType=VARCHAR}, #{kbUser.customerId,jdbcType=VARCHAR},
+            #{kbUser.phone,jdbcType=VARCHAR}, #{kbUser.loginAccount,jdbcType=VARCHAR}, #{kbUser.pwd,jdbcType=VARCHAR},
+            #{kbUser.encryptionFactor,jdbcType=VARCHAR}, #{kbUser.memberCardNo,jdbcType=VARCHAR}, #{kbUser.nickName,jdbcType=VARCHAR},
+            #{kbUser.realName,jdbcType=VARCHAR}, #{kbUser.headImgUrl,jdbcType=VARCHAR}, #{kbUser.regionId,jdbcType=BIGINT},
+            #{kbUser.branchId,jdbcType=VARCHAR}, #{kbUser.userType,jdbcType=TINYINT}, #{kbUser.jobTitleId,jdbcType=BIGINT},
+            #{kbUser.userSource,jdbcType=TINYINT}, #{kbUser.inviter,jdbcType=VARCHAR}, #{kbUser.wxNickName,jdbcType=VARCHAR},
+            #{kbUser.wxOpenId,jdbcType=VARCHAR}, #{kbUser.wxHeadUrl,jdbcType=VARCHAR}, #{kbUser.points,jdbcType=INTEGER},
+            #{kbUser.dingUserId,jdbcType=VARCHAR}, #{kbUser.isLeave,jdbcType=TINYINT}, #{kbUser.isDeleted,jdbcType=INTEGER},
+            #{kbUser.gmtCreated,jdbcType=TIMESTAMP}, #{kbUser.gmtModified,jdbcType=TIMESTAMP}, #{kbUser.createdBy,jdbcType=VARCHAR},
+            #{kbUser.modifiedBy,jdbcType=VARCHAR})
+        </foreach>
+  </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.kaba.transform.entity.generation.KBUser" >
+        update kb_user
+        <set >
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="customerId != null" >
+                customer_id = #{customerId,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="loginAccount != null" >
+                login_account = #{loginAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="pwd != null" >
+                pwd = #{pwd,jdbcType=VARCHAR},
+            </if>
+            <if test="encryptionFactor != null" >
+                encryption_factor = #{encryptionFactor,jdbcType=VARCHAR},
+            </if>
+            <if test="memberCardNo != null" >
+                member_card_no = #{memberCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null" >
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null" >
+                real_name = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="headImgUrl != null" >
+                head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="regionId != null" >
+                region_id = #{regionId,jdbcType=BIGINT},
+            </if>
+            <if test="branchId != null" >
+                branch_id = #{branchId,jdbcType=VARCHAR},
+            </if>
+            <if test="userType != null" >
+                user_type = #{userType,jdbcType=TINYINT},
+            </if>
+            <if test="jobTitleId != null" >
+                job_title_id = #{jobTitleId,jdbcType=BIGINT},
+            </if>
+            <if test="userSource != null" >
+                user_source = #{userSource,jdbcType=TINYINT},
+            </if>
+            <if test="inviter != null" >
+                inviter = #{inviter,jdbcType=VARCHAR},
+            </if>
+            <if test="wxNickName != null" >
+                wx_nick_name = #{wxNickName,jdbcType=VARCHAR},
+            </if>
+            <if test="wxOpenId != null" >
+                wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
+            </if>
+            <if test="wxHeadUrl != null" >
+                wx_head_url = #{wxHeadUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="points != null" >
+                points = #{points,jdbcType=INTEGER},
+            </if>
+            <if test="dingUserId != null" >
+                ding_user_id = #{dingUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="isLeave != null" >
+                is_leave = #{isLeave,jdbcType=TINYINT},
+            </if>
+            <if test="isDeleted != null" >
+                is_deleted = #{isDeleted,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreated != null" >
+                gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null" >
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdBy != null" >
+                created_by = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="modifiedBy != null" >
+                modified_by = #{modifiedBy,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.kaba.transform.entity.generation.KBUser" >
+    update kb_user
+    set user_id = #{userId,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      login_account = #{loginAccount,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      encryption_factor = #{encryptionFactor,jdbcType=VARCHAR},
+      member_card_no = #{memberCardNo,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+      region_id = #{regionId,jdbcType=BIGINT},
+      branch_id = #{branchId,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=TINYINT},
+      job_title_id = #{jobTitleId,jdbcType=BIGINT},
+      user_source = #{userSource,jdbcType=TINYINT},
+      inviter = #{inviter,jdbcType=VARCHAR},
+      wx_nick_name = #{wxNickName,jdbcType=VARCHAR},
+      wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
+      wx_head_url = #{wxHeadUrl,jdbcType=VARCHAR},
+      points = #{points,jdbcType=INTEGER},
+      ding_user_id = #{dingUserId,jdbcType=VARCHAR},
+      is_leave = #{isLeave,jdbcType=TINYINT},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

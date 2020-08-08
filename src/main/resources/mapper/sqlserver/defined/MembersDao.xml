@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.sqlserver.defined.MembersDao" >
+  <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.Members" >
+    <id column="Id" property="id" jdbcType="CHAR" />
+    <result column="Code" property="code" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="NVARCHAR" />
+    <result column="OtherName" property="othername" jdbcType="NVARCHAR" />
+    <result column="Gender" property="gender" jdbcType="BIT" />
+    <result column="Birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="ParentName" property="parentname" jdbcType="NVARCHAR" />
+    <result column="PhoneNumber" property="phonenumber" jdbcType="NVARCHAR" />
+    <result column="Address" property="address" jdbcType="NVARCHAR" />
+    <result column="School" property="school" jdbcType="NVARCHAR" />
+    <result column="CenterId" property="centerid" jdbcType="CHAR" />
+    <result column="StartDate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="EndDate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="Status" property="status" jdbcType="SMALLINT" />
+    <result column="IsDeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CreateBy" property="createby" jdbcType="CHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateBy" property="updateby" jdbcType="CHAR" />
+    <result column="oldId" property="oldid" jdbcType="CHAR" />
+    <result column="oldCode" property="oldcode" jdbcType="VARCHAR" />
+    <result column="ClassinUid" property="classinuid" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, Code, Name, OtherName, Gender, Birthday, ParentName, PhoneNumber, Address, School, 
+    CenterId, StartDate, EndDate, Status, IsDeleted, CreateDate, CreateBy, UpdateDate, 
+    UpdateBy, oldId, oldCode, ClassinUid
+  </sql>
+  <select id="findAllMembers" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from Members
+  </select>
+
+</mapper>
