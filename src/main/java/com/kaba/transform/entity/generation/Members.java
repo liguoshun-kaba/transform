@@ -1,6 +1,7 @@
 package com.kaba.transform.entity.generation;
 
 import java.util.Date;
+import java.util.List;
 
 public class Members {
     private String id;
@@ -11,7 +12,7 @@ public class Members {
 
     private String othername;
 
-    private Boolean gender;
+    private Integer gender;
 
     private Date birthday;
 
@@ -79,11 +80,11 @@ public class Members {
         this.othername = othername == null ? null : othername.trim();
     }
 
-    public Boolean getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -222,4 +223,6 @@ public class Members {
     public void setClassinuid(Long classinuid) {
         this.classinuid = classinuid;
     }
+
+
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.mysql.defined.KBSubUserDao">
+    <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.KBSubUser">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="sub_user_id" property="subUserId" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="real_name" property="realName" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="INTEGER"/>
+        <result column="head_img_url" property="headImgUrl" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="VARCHAR"/>
+        <result column="member_id" property="memberId" jdbcType="VARCHAR"/>
+        <result column="member_card_no" property="memberCardNo" jdbcType="VARCHAR"/>
+        <result column="center_id" property="centerId" jdbcType="VARCHAR"/>
+        <result column="center_name" property="centerName" jdbcType="VARCHAR"/>
+        <result column="points" property="points" jdbcType="INTEGER"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER"/>
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR"/>
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, sub_user_id, user_id, nick_name, real_name, gender, head_img_url, birthday, member_id, 
+    member_card_no, center_id, center_name, points, is_deleted, gmt_created, gmt_modified, 
+    created_by, modified_by
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from kb_sub_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="batchInsert">
+        insert into kb_sub_user (id, sub_user_id, user_id,
+        nick_name, real_name, gender,
+        head_img_url, birthday, member_id,
+        member_card_no, center_id, center_name,
+        points, is_deleted, gmt_created,
+        gmt_modified, created_by, modified_by
+        )
+        values
+        <foreach collection="list" item="kbSubUser" separator=",">
+            (#{kbSubUser.id,jdbcType=BIGINT}, #{kbSubUser.subUserId,jdbcType=VARCHAR}, #{kbSubUser.userId,jdbcType=VARCHAR},
+            #{kbSubUser.nickName,jdbcType=VARCHAR}, #{kbSubUser.realName,jdbcType=VARCHAR}, #{kbSubUser.gender,jdbcType=INTEGER},
+            #{kbSubUser.headImgUrl,jdbcType=VARCHAR}, #{kbSubUser.birthday,jdbcType=VARCHAR}, #{kbSubUser.memberId,jdbcType=VARCHAR},
+            #{kbSubUser.memberCardNo,jdbcType=VARCHAR}, #{kbSubUser.centerId,jdbcType=VARCHAR}, #{kbSubUser.centerName,jdbcType=VARCHAR},
+            #{kbSubUser.points,jdbcType=INTEGER}, #{kbSubUser.isDeleted,jdbcType=INTEGER}, #{kbSubUser.gmtCreated,jdbcType=TIMESTAMP},
+            #{kbSubUser.gmtModified,jdbcType=TIMESTAMP}, #{kbSubUser.createdBy,jdbcType=VARCHAR}, #{kbSubUser.modifiedBy,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.sqlserver.defined.CustomersDao" >
+  <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.Customers" >
+    <id column="Id" property="id" jdbcType="CHAR" />
+    <result column="Name" property="name" jdbcType="NVARCHAR" />
+    <result column="OtherName" property="othername" jdbcType="NVARCHAR" />
+    <result column="Gender" property="gender" jdbcType="BIT" />
+    <result column="BirthDay" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="MasterName1" property="mastername1" jdbcType="NVARCHAR" />
+    <result column="PhoneNumber1" property="phonenumber1" jdbcType="VARCHAR" />
+    <result column="Relationship1" property="relationship1" jdbcType="NVARCHAR" />
+    <result column="MasterName2" property="mastername2" jdbcType="NVARCHAR" />
+    <result column="PhoneNumber2" property="phonenumber2" jdbcType="VARCHAR" />
+    <result column="Relationship2" property="relationship2" jdbcType="NVARCHAR" />
+    <result column="School" property="school" jdbcType="NVARCHAR" />
+    <result column="Community" property="community" jdbcType="NVARCHAR" />
+    <result column="Status" property="status" jdbcType="SMALLINT" />
+    <result column="IsMarket" property="ismarket" jdbcType="BIT" />
+    <result column="Source" property="source" jdbcType="CHAR" />
+    <result column="level" property="level" jdbcType="CHAR" />
+    <result column="Category" property="category" jdbcType="SMALLINT" />
+    <result column="Submitter" property="submitter" jdbcType="NVARCHAR" />
+    <result column="SubmitterPost" property="submitterpost" jdbcType="INTEGER" />
+    <result column="SignerId" property="signerid" jdbcType="CHAR" />
+    <result column="SignDate" property="signdate" jdbcType="TIMESTAMP" />
+    <result column="CommunityId" property="communityid" jdbcType="CHAR" />
+    <result column="Remark" property="remark" jdbcType="NVARCHAR" />
+    <result column="CenterId" property="centerid" jdbcType="CHAR" />
+    <result column="IsDeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CreateBy" property="createby" jdbcType="CHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateBy" property="updateby" jdbcType="CHAR" />
+    <result column="LastConsultDate" property="lastconsultdate" jdbcType="TIMESTAMP" />
+    <result column="ConsulterId" property="consulterid" jdbcType="CHAR" />
+    <result column="AssignDate" property="assigndate" jdbcType="TIMESTAMP" />
+    <result column="LastInviteDate" property="lastinvitedate" jdbcType="TIMESTAMP" />
+    <result column="Province" property="province" jdbcType="NVARCHAR" />
+    <result column="City" property="city" jdbcType="NVARCHAR" />
+    <result column="Area" property="area" jdbcType="NVARCHAR" />
+    <result column="SourceMode" property="sourcemode" jdbcType="CHAR" />
+    <result column="IsSelf" property="isself" jdbcType="BIT" />
+    <result column="ShareId" property="shareid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, Name, OtherName, Gender, BirthDay, MasterName1, PhoneNumber1, Relationship1, 
+    MasterName2, PhoneNumber2, Relationship2, School, Community, Status, IsMarket, Source, 
+    level, Category, Submitter, SubmitterPost, SignerId, SignDate, CommunityId, Remark, 
+    CenterId, IsDeleted, CreateDate, CreateBy, UpdateDate, UpdateBy, LastConsultDate, 
+    ConsulterId, AssignDate, LastInviteDate, Province, City, Area, SourceMode, IsSelf, 
+    ShareId
+  </sql>
+  <select id="findAllCustomers" resultMap="BaseResultMap" resultSetType="FORWARD_ONLY" fetchSize="1000" >
+    select 
+    <include refid="Base_Column_List" />
+    from Customers
+  </select>
+
+  <select id="selectByCenterId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from Customers
+    where centerId = #{centerId,jdbcType=CHAR}
+  </select>
+
+</mapper>

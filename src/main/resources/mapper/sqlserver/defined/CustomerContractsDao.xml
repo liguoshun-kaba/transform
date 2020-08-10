@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.sqlserver.defined.CustomerContractsDao" >
+  <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.CustomerContracts" >
+    <id column="Id" property="id" jdbcType="CHAR" />
+    <result column="CustomerId" property="customerid" jdbcType="CHAR" />
+    <result column="MemberId" property="memberid" jdbcType="CHAR" />
+    <result column="ContractNo" property="contractno" jdbcType="VARCHAR" />
+    <result column="ChildId" property="childid" jdbcType="VARCHAR" />
+    <result column="ChildName" property="childname" jdbcType="NVARCHAR" />
+    <result column="CourseName" property="coursename" jdbcType="NVARCHAR" />
+    <result column="Category" property="category" jdbcType="INTEGER" />
+    <result column="TotalHours" property="totalhours" jdbcType="INTEGER" />
+    <result column="TotalEnrollmentFree" property="totalenrollmentfree" jdbcType="DECIMAL" />
+    <result column="Deposit" property="deposit" jdbcType="DECIMAL" />
+    <result column="RemainingBalance" property="remainingbalance" jdbcType="DECIMAL" />
+    <result column="FromDate" property="fromdate" jdbcType="TIMESTAMP" />
+    <result column="ToDate" property="todate" jdbcType="TIMESTAMP" />
+    <result column="Type" property="type" jdbcType="SMALLINT" />
+    <result column="SignDate" property="signdate" jdbcType="TIMESTAMP" />
+    <result column="Remark" property="remark" jdbcType="NVARCHAR" />
+    <result column="IsDeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CreateBy" property="createby" jdbcType="CHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateBy" property="updateby" jdbcType="CHAR" />
+    <result column="PeriodType" property="periodtype" jdbcType="INTEGER" />
+    <result column="ClassType" property="classtype" jdbcType="INTEGER" />
+    <result column="ContractStatus" property="contractstatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, CustomerId, MemberId, ContractNo, ChildId, ChildName, CourseName, Category, TotalHours, 
+    TotalEnrollmentFree, Deposit, RemainingBalance, FromDate, ToDate, Type, SignDate, 
+    Remark, IsDeleted, CreateDate, CreateBy, UpdateDate, UpdateBy, PeriodType, ClassType, 
+    ContractStatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CustomerContracts
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+
+  <select id="findAllCustomerContracts" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from CustomerContracts
+  </select>
+</mapper>

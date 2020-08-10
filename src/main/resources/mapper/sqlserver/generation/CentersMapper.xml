@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaba.transform.dao.sqlserver.generation.CentersMapper" >
+  <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.Centers" >
+    <id column="Id" property="id" jdbcType="CHAR" />
+    <result column="Code" property="code" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="NVARCHAR" />
+    <result column="Address" property="address" jdbcType="NVARCHAR" />
+    <result column="Region" property="region" jdbcType="NVARCHAR" />
+    <result column="PhoneNumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="FaxNumber" property="faxnumber" jdbcType="VARCHAR" />
+    <result column="Email" property="email" jdbcType="VARCHAR" />
+    <result column="Company" property="company" jdbcType="NVARCHAR" />
+    <result column="Master" property="master" jdbcType="NVARCHAR" />
+    <result column="Description" property="description" jdbcType="NVARCHAR" />
+    <result column="StartDate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="EndDate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="IsDeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CreateBy" property="createby" jdbcType="CHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateBy" property="updateby" jdbcType="CHAR" />
+    <result column="DistrictId" property="districtid" jdbcType="CHAR" />
+    <result column="brandtype" property="brandtype" jdbcType="INTEGER" />
+    <result column="ManagementModel" property="managementmodel" jdbcType="INTEGER" />
+    <result column="IsShow" property="isshow" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, Code, Name, Address, Region, PhoneNumber, FaxNumber, Email, Company, Master, 
+    Description, StartDate, EndDate, IsDeleted, CreateDate, CreateBy, UpdateDate, UpdateBy, 
+    DistrictId, brandtype, ManagementModel, IsShow
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Centers
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Centers
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.kaba.transform.entity.generation.Centers" >
+    insert into Centers (Id, Code, Name, 
+      Address, Region, PhoneNumber, 
+      FaxNumber, Email, Company, 
+      Master, Description, StartDate, 
+      EndDate, IsDeleted, CreateDate, 
+      CreateBy, UpdateDate, UpdateBy, 
+      DistrictId, brandtype, ManagementModel, 
+      IsShow)
+    values (#{id,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=NVARCHAR}, 
+      #{address,jdbcType=NVARCHAR}, #{region,jdbcType=NVARCHAR}, #{phonenumber,jdbcType=VARCHAR}, 
+      #{faxnumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{company,jdbcType=NVARCHAR}, 
+      #{master,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}, #{startdate,jdbcType=TIMESTAMP}, 
+      #{enddate,jdbcType=TIMESTAMP}, #{isdeleted,jdbcType=BIT}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{createby,jdbcType=CHAR}, #{updatedate,jdbcType=TIMESTAMP}, #{updateby,jdbcType=CHAR}, 
+      #{districtid,jdbcType=CHAR}, #{brandtype,jdbcType=INTEGER}, #{managementmodel,jdbcType=INTEGER}, 
+      #{isshow,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kaba.transform.entity.generation.Centers" >
+    insert into Centers
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="code != null" >
+        Code,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="address != null" >
+        Address,
+      </if>
+      <if test="region != null" >
+        Region,
+      </if>
+      <if test="phonenumber != null" >
+        PhoneNumber,
+      </if>
+      <if test="faxnumber != null" >
+        FaxNumber,
+      </if>
+      <if test="email != null" >
+        Email,
+      </if>
+      <if test="company != null" >
+        Company,
+      </if>
+      <if test="master != null" >
+        Master,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="startdate != null" >
+        StartDate,
+      </if>
+      <if test="enddate != null" >
+        EndDate,
+      </if>
+      <if test="isdeleted != null" >
+        IsDeleted,
+      </if>
+      <if test="createdate != null" >
+        CreateDate,
+      </if>
+      <if test="createby != null" >
+        CreateBy,
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate,
+      </if>
+      <if test="updateby != null" >
+        UpdateBy,
+      </if>
+      <if test="districtid != null" >
+        DistrictId,
+      </if>
+      <if test="brandtype != null" >
+        brandtype,
+      </if>
+      <if test="managementmodel != null" >
+        ManagementModel,
+      </if>
+      <if test="isshow != null" >
+        IsShow,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=NVARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="faxnumber != null" >
+        #{faxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=NVARCHAR},
+      </if>
+      <if test="master != null" >
+        #{master,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createby != null" >
+        #{createby,jdbcType=CHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        #{updateby,jdbcType=CHAR},
+      </if>
+      <if test="districtid != null" >
+        #{districtid,jdbcType=CHAR},
+      </if>
+      <if test="brandtype != null" >
+        #{brandtype,jdbcType=INTEGER},
+      </if>
+      <if test="managementmodel != null" >
+        #{managementmodel,jdbcType=INTEGER},
+      </if>
+      <if test="isshow != null" >
+        #{isshow,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kaba.transform.entity.generation.Centers" >
+    update Centers
+    <set >
+      <if test="code != null" >
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null" >
+        Address = #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="region != null" >
+        Region = #{region,jdbcType=NVARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        PhoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="faxnumber != null" >
+        FaxNumber = #{faxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        Company = #{company,jdbcType=NVARCHAR},
+      </if>
+      <if test="master != null" >
+        Master = #{master,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null" >
+        Description = #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="startdate != null" >
+        StartDate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        EndDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        IsDeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="createdate != null" >
+        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createby != null" >
+        CreateBy = #{createby,jdbcType=CHAR},
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        UpdateBy = #{updateby,jdbcType=CHAR},
+      </if>
+      <if test="districtid != null" >
+        DistrictId = #{districtid,jdbcType=CHAR},
+      </if>
+      <if test="brandtype != null" >
+        brandtype = #{brandtype,jdbcType=INTEGER},
+      </if>
+      <if test="managementmodel != null" >
+        ManagementModel = #{managementmodel,jdbcType=INTEGER},
+      </if>
+      <if test="isshow != null" >
+        IsShow = #{isshow,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kaba.transform.entity.generation.Centers" >
+    update Centers
+    set Code = #{code,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=NVARCHAR},
+      Address = #{address,jdbcType=NVARCHAR},
+      Region = #{region,jdbcType=NVARCHAR},
+      PhoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      FaxNumber = #{faxnumber,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      Company = #{company,jdbcType=NVARCHAR},
+      Master = #{master,jdbcType=NVARCHAR},
+      Description = #{description,jdbcType=NVARCHAR},
+      StartDate = #{startdate,jdbcType=TIMESTAMP},
+      EndDate = #{enddate,jdbcType=TIMESTAMP},
+      IsDeleted = #{isdeleted,jdbcType=BIT},
+      CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      CreateBy = #{createby,jdbcType=CHAR},
+      UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      UpdateBy = #{updateby,jdbcType=CHAR},
+      DistrictId = #{districtid,jdbcType=CHAR},
+      brandtype = #{brandtype,jdbcType=INTEGER},
+      ManagementModel = #{managementmodel,jdbcType=INTEGER},
+      IsShow = #{isshow,jdbcType=BIT}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

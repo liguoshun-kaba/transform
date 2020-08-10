@@ -21,46 +21,51 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成(实体)模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\table-transform\transform\src\main\java">
+        <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- 生成XML映射文件的包名和位置-->
-        <sqlMapGenerator targetPackage="mapper\sqlserver\generation" targetProject="D:\project\table-transform\transform\src\main\resources">
+        <sqlMapGenerator targetPackage="mapper\sqlserver\generation" targetProject="D:\project\\transform\src\main\resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO接口的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.sqlserver.generation" targetProject="D:\project\table-transform\transform\src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.sqlserver.generation" targetProject="D:\project\transform\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 关联自动生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
 <!--        <table tableName="Users" domainObjectName="Users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="Members" domainObjectName="Members" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<!--        <table tableName="Members" domainObjectName="Members" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Customers" domainObjectName="Customers" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="centers" domainObjectName="Centers" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="CustomerContracts" domainObjectName="CustomerContracts" ></table>
+
+
     </context>
 
     <!--mysql-->
-    <!--<classPathEntry  location="D:\java_assist\maven\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar"/>
-    <context id="Tables"  targetRuntime="MyBatis3">
-        <commentGenerator>
-            <property name="suppressDate" value="true"/>
-            <property name="suppressAllComments" value="true"/>
-        </commentGenerator>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/kabba_test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true" userId="root" password="root">
-        </jdbcConnection>
-        <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
-        </javaTypeResolver>
-        <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\table-transform\transform\src\main\java">
-            <property name="enableSubPackages" value="true" />
-            <property name="trimStrings" value="true" />
-        </javaModelGenerator>
-        <sqlMapGenerator targetPackage="mapper\mysql\generation" targetProject="D:\project\table-transform\transform\src\main\resources">
-            <property name="enableSubPackages" value="true" />
-        </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.mysql.generation" targetProject="D:\project\table-transform\transform\src\main\java">
-            <property name="enableSubPackages" value="true" />
-        </javaClientGenerator>
-        <table tableName="kb_user" domainObjectName="KBUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-    </context> -->
-</generatorConfiguration>
+    <!-- <classPathEntry  location="D:\java_assist\maven\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar"/>
+     <context id="Tables"  targetRuntime="MyBatis3">
+         <commentGenerator>
+             <property name="suppressDate" value="true"/>
+             <property name="suppressAllComments" value="true"/>
+         </commentGenerator>
+         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                         connectionURL="jdbc:mysql://localhost:3306/kabba_test?allowMultiQueries=true" userId="root" password="root">
+         </jdbcConnection>
+         <javaTypeResolver>
+             <property name="forceBigDecimals" value="false"/>
+         </javaTypeResolver>
+         <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
+             <property name="enableSubPackages" value="true" />
+             <property name="trimStrings" value="true" />
+         </javaModelGenerator>
+         <sqlMapGenerator targetPackage="mapper\mysql\generation" targetProject="D:\project\transform\src\main\resources">
+             <property name="enableSubPackages" value="true" />
+         </sqlMapGenerator>
+         <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.mysql.generation" targetProject="D:\project\transform\src\main\java">
+             <property name="enableSubPackages" value="true" />
+         </javaClientGenerator>
+         <table tableName="kb_sub_user" domainObjectName="KBSubUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+     </context> -->
+ </generatorConfiguration>
