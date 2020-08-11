@@ -21,7 +21,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成(实体)模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
+        <javaModelGenerator targetPackage="com.kabba.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -30,7 +30,7 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO接口的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.sqlserver.generation" targetProject="D:\project\transform\src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kabba.transform.dao.sqlserver.generation" targetProject="D:\project\transform\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 关联自动生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
@@ -56,14 +56,14 @@
          <javaTypeResolver>
              <property name="forceBigDecimals" value="false"/>
          </javaTypeResolver>
-         <javaModelGenerator targetPackage="com.kaba.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
+         <javaModelGenerator targetPackage="com.kabbaa.transform.entity.generation" targetProject="D:\project\transform\src\main\java">
              <property name="enableSubPackages" value="true" />
              <property name="trimStrings" value="true" />
          </javaModelGenerator>
          <sqlMapGenerator targetPackage="mapper\mysql\generation" targetProject="D:\project\transform\src\main\resources">
              <property name="enableSubPackages" value="true" />
          </sqlMapGenerator>
-         <javaClientGenerator type="XMLMAPPER" targetPackage="com.kaba.transform.dao.mysql.generation" targetProject="D:\project\transform\src\main\java">
+         <javaClientGenerator type="XMLMAPPER" targetPackage="com.kabbaa.transform.dao.mysql.generation" targetProject="D:\project\transform\src\main\java">
              <property name="enableSubPackages" value="true" />
          </javaClientGenerator>
          <table tableName="kb_sub_user" domainObjectName="KBSubUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>

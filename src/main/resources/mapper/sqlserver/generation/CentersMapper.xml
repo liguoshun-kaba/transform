@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.kaba.transform.dao.sqlserver.generation.CentersMapper" >
-  <resultMap id="BaseResultMap" type="com.kaba.transform.entity.generation.Centers" >
+<mapper namespace="com.kabba.transform.dao.sqlserver.generation.CentersMapper" >
+  <resultMap id="BaseResultMap" type="com.kabba.transform.entity.generation.Centers" >
     <id column="Id" property="id" jdbcType="CHAR" />
     <result column="Code" property="code" jdbcType="VARCHAR" />
     <result column="Name" property="name" jdbcType="NVARCHAR" />
@@ -40,7 +40,7 @@
     delete from Centers
     where Id = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.kaba.transform.entity.generation.Centers" >
+  <insert id="insert" parameterType="com.kabba.transform.entity.generation.Centers" >
     insert into Centers (Id, Code, Name, 
       Address, Region, PhoneNumber, 
       FaxNumber, Email, Company, 
@@ -58,7 +58,7 @@
       #{districtid,jdbcType=CHAR}, #{brandtype,jdbcType=INTEGER}, #{managementmodel,jdbcType=INTEGER}, 
       #{isshow,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.kaba.transform.entity.generation.Centers" >
+  <insert id="insertSelective" parameterType="com.kabba.transform.entity.generation.Centers" >
     insert into Centers
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -197,7 +197,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kaba.transform.entity.generation.Centers" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kabba.transform.entity.generation.Centers" >
     update Centers
     <set >
       <if test="code != null" >
@@ -266,7 +266,7 @@
     </set>
     where Id = #{id,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kaba.transform.entity.generation.Centers" >
+  <update id="updateByPrimaryKey" parameterType="com.kabba.transform.entity.generation.Centers" >
     update Centers
     set Code = #{code,jdbcType=VARCHAR},
       Name = #{name,jdbcType=NVARCHAR},
